@@ -1,0 +1,10 @@
+version: '3'
+services:
+  saml-idp:
+    image: kristophjunge/test-saml-idp
+    ports:
+      - 10080:8080
+      - 10443:8443
+    environment:
+      - SIMPLESAMLPHP_SP_ENTITY_ID=http://localhost:8080/saml2/service-provider-metadata/spring-boot-saml-poc
+      - SIMPLESAMLPHP_SP_ASSERTION_CONSUMER_SERVICE=http://localhost:8080/login/saml2/sso/spring-boot-saml-poc
