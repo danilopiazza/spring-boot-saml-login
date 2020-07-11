@@ -42,8 +42,26 @@ On Windows, either install [OpenSSL](https://slproweb.com/products/Win32OpenSSL.
 2. Navigate to http://localhost:10080/simplesaml/saml2/idp/metadata.php
 3. The contents of the `<ds:X509Certificate>` element should match the contents of the `idp-certificate.pem` file under `src/main/resources/certs`
 
+# Login
+
+The available users configured in the Identity Provider are
+
+| Username | Password  |
+|----------|-----------|
+| user1    | user1pass |
+| user2    | user2pass |
+
+## SP initiated SSO
+
+Access http://localhost:8080 to test SAML 2.0 Single Sign-On initiated by the Service Provider.
+
+## IdP initiated SSO
+
+Access http://localhost:10080/simplesaml/saml2/idp/SSOService.php?spentityid=issuer.example.com to test SAML 2.0 Single Sign-On initiated by the Identity Provider.
+
 # References
 
 - https://medium.com/disney-streaming/setup-a-single-sign-on-saml-test-environment-with-docker-and-nodejs-c53fc1a984c9
 - https://github.com/spring-projects/spring-security/tree/master/samples/boot/saml2login
 - https://docs.spring.io/spring-security/site/docs/current/reference/html5/#servlet-saml2
+- https://simplesamlphp.org/docs/stable/simplesamlphp-idp-more
